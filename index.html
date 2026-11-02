@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Encomendas</title>
+</head>
+<body>
+    <h1>Nova encomenda</h1>
+    <form method="post" action="/encomendas">
+        Modelo: <input name="modelo">
+        Tamanho: <input name="tamanho" type="number">
+        Quantidade: <input name="quantidade" type="number" value="1">
+        <button type="submit">Encomendar</button>
+    </form>
+
+    <h1>Encomendas</h1>
+    <ul>
+    {% for e in encomendas %}
+        <li>#{{ e.id }} - {{ e.modelo }} (tam. {{ e.tamanho }}) x{{ e.quantidade }} - {{ e.estado }}</li>
+    {% endfor %}
+    </ul>
+</body>
+</html>
