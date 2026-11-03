@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>FOOT-STYLE - Encomendas</title>
+</head>
+<body>
+    <h1>Nova encomenda</h1>
+    <form method="post" action="/encomendas">
+        ID do produto: <input name="produto_id" type="number">
+        Tamanho: <input name="tamanho">
+        Quantidade: <input name="quantidade" type="number" value="1">
+        <button type="submit">Encomendar</button>
+    </form>
+
+    <h1>Encomendas</h1>
+    <ul>
+    {% for e in encomendas %}
+        <li>#{{ e.id }} - {{ e.modelo }} (tam. {{ e.tamanho }}) x{{ e.quantidade }} - {{ e.total }} € - {{ e.estado }}</li>
+    {% endfor %}
+    </ul>
+</body>
+</html>
